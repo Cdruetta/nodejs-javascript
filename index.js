@@ -7,6 +7,16 @@ const port = 3000
 app.use(express.json());
 
 
+const productos = [
+    { id: 1, nombre: 'monitor', precio: 40000 },
+    { id: 2, nombre: 'CPU Ryzen', precio: 15000 }
+]
+
+app.get('/productos', (req, res) => {
+    res.json(productos);
+});
+
+
 app.get('/bienvenida', (req, res) => {
     res.send('Bienvenido al sistema');
 })
