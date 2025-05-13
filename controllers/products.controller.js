@@ -8,7 +8,7 @@ const getProducts = (req, res) => {
     res.json({ data: products, status: 200, mensaje: 'Lista de productos encontrada' });
 }
 
-// GET btener un producto por id
+//GET obtener un producto por id
 const getProductById = (req, res) => {
     const product = products.find(item => item.id === parseInt(req.params.id))
     if (!product) return res.json({ status: 404, mensaje: 'Producto no encontrado' })
