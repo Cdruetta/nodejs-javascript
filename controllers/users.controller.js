@@ -26,7 +26,7 @@ const getUsuarioById = (req, res) => {
     const usuario = usuarios.find(u => u.id === parseInt(req.params.id));
     if (!usuario) return res.status(404).json({ status: 404, mensaje: 'Usuario no encontrado' });
 
-    res.json({ data: usuario, status: 200, mensaje: 'Usuario encontrado' });
+    res.json({ data: usuario, status: 201, mensaje: 'Usuario encontrado' });
 };
 
 // POST /usuarios - crear nuevo usuario
@@ -47,8 +47,6 @@ const createUsuario = (req, res) => {
     if (emailExistente){
         return res.status(404).json({ status: 404, message : 'El emial ya existe'})
     }
-
-
 
     usuarios.push(nuevoUsuario);
     escribirUsuarios(usuarios);
