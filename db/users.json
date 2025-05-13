@@ -4,5 +4,17 @@
     "nombre": "Cristian Druetta E",
     "email": "c.druettaitecriocuarto.org",
     "edad": 44
+  },
+  {
+    "id": 2,
+    "nombre": "Gisela Ponzio",
+    "email": "gise@gise.com",
+    "edad": 39
+  },
+  {
+    "id": 3,
+    "nombre": "Agustin Invaldi",
+    "email": "agus@agus.com",
+    "edad": 32
   }
 ]

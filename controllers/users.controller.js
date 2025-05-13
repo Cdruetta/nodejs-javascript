@@ -31,6 +31,7 @@ const getUsuarioById = (req, res) => {
 
 // POST /usuarios - crear nuevo usuario
 const createUsuario = (req, res) => {
+    console.log('BODY:', req.body);
     const { nombre, email, edad } = req.body;
     const nuevoUsuario = {
         id: usuarios.length + 1,
@@ -38,6 +39,17 @@ const createUsuario = (req, res) => {
         email,
         edad
     };
+
+    if (!email || email.replace(/\s/g, '') === '') {
+    return res.status(400).json({ status: 404, mensaje: 'El campo "email" es obligatorio' });
+}
+    const emailExistente = usuarios.find(u => u.email === email); 
+    if (emailExistente){
+        return res.status(404).json({ status: 404, message : 'El emial ya existe'})
+    }
+
+
+
     usuarios.push(nuevoUsuario);
     escribirUsuarios(usuarios);
     res.status(201).json({ data: nuevoUsuario, status: 201, mensaje: 'Usuario creado' });
